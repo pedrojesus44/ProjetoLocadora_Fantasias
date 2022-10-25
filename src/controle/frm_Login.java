@@ -2,6 +2,7 @@ package controle;
 
 
 import conexao.Conexao;
+import controle.frm_cadastrar;
 import java.sql.SQLException;
 import javax.swing.JOptionPane; 
 import javax.sql.*;
@@ -84,6 +85,11 @@ public class frm_Login extends javax.swing.JFrame {
         jLabel1.setBounds(190, 300, 142, 20);
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnCadastrar);
         btnCadastrar.setBounds(220, 340, 83, 25);
 
@@ -125,6 +131,12 @@ public class frm_Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"\n Osdados digitados não foram localizados!! :\n "+errosql,"Mensagem do Programa",JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btn_loginActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        frm_cadastrar mostracadastro = new frm_cadastrar();
+        mostracadastro.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
