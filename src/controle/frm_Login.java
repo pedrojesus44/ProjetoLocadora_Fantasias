@@ -40,34 +40,35 @@ public class frm_Login extends javax.swing.JFrame {
         btn_login = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 204));
 
-        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(170, 83, 196));
         jPanel1.setLayout(null);
 
         titulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setText("Acesso ao sistema");
         jPanel1.add(titulo);
-        titulo.setBounds(120, 30, 303, 48);
+        titulo.setBounds(80, 40, 303, 48);
 
         rotulo_usuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         rotulo_usuario.setForeground(new java.awt.Color(255, 255, 255));
         rotulo_usuario.setText("Usuário:");
         jPanel1.add(rotulo_usuario);
-        rotulo_usuario.setBounds(100, 120, 55, 20);
+        rotulo_usuario.setBounds(80, 120, 55, 20);
         jPanel1.add(txt_usuario);
-        txt_usuario.setBounds(160, 120, 230, 22);
+        txt_usuario.setBounds(150, 120, 230, 22);
 
         rotulo_senha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         rotulo_senha.setForeground(new java.awt.Color(255, 255, 255));
         rotulo_senha.setText("Senha:");
         jPanel1.add(rotulo_senha);
-        rotulo_senha.setBounds(110, 180, 44, 20);
+        rotulo_senha.setBounds(80, 180, 44, 20);
         jPanel1.add(txt_senha);
-        txt_senha.setBounds(160, 180, 230, 22);
+        txt_senha.setBounds(150, 180, 230, 22);
 
         btn_login.setText("Logar");
         btn_login.addActionListener(new java.awt.event.ActionListener() {
@@ -76,13 +77,13 @@ public class frm_Login extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_login);
-        btn_login.setBounds(220, 220, 81, 25);
+        btn_login.setBounds(190, 230, 81, 25);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Não possui cadastro?");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(190, 300, 142, 20);
+        jLabel1.setBounds(160, 300, 142, 20);
 
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,19 +92,24 @@ public class frm_Login extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnCadastrar);
-        btnCadastrar.setBounds(220, 340, 83, 25);
+        btnCadastrar.setBounds(190, 340, 83, 25);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -178,6 +184,7 @@ public class frm_Login extends javax.swing.JFrame {
     public javax.swing.JButton btn_login;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     public javax.swing.JLabel rotulo_senha;
     public javax.swing.JLabel rotulo_usuario;
     public javax.swing.JLabel titulo;
