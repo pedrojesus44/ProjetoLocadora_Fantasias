@@ -8,6 +8,7 @@ import conexao.Conexao; // importar do package a classe
 import javax.swing.JOptionPane;
 import java.sql.*; // para reconhecimento dos comandos SQL
 import controle.frm_Login;
+import controle.frm_Menu;
 
 /**
  *
@@ -59,6 +60,7 @@ public class frm_cadastrar extends javax.swing.JFrame {
         rotulo10 = new javax.swing.JLabel();
         combobox = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
+        btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -173,6 +175,15 @@ public class frm_cadastrar extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/door_in.png"))); // NOI18N
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSair);
+        btnSair.setBounds(479, 850, 30, 25);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -205,7 +216,7 @@ public class frm_cadastrar extends javax.swing.JFrame {
         String senha_cli = txt10.getText();
         
         try {
-            String insert_sql="insert into clientes (nome_cli,email_cli, data_nasc_cli) values ('" + nome_cli + "','" + email_cli + "','" + data_nasc_cli + "')";
+            String insert_sql="insert into clientes (nome_cli,email_cli, data_nasc_cli, cpf_cnpj, endereco_cli, cep_cli, bairro_cli, cidade_cli, estado_cli, senha_cli) values ('" + nome_cli + "','" + email_cli + "','" + data_nasc_cli + "', '" + cpf_cnpj + "','" + endereco_cli + "','" + cep_cli + "', '" + bairro_cli + "','" + cidade_cli + "','" + estado_cli + "', '" + tipo_cli + "','" + senha_cli + "')";
             System.out.println(insert_sql);
             con_cliente.statement.executeUpdate(insert_sql);
             JOptionPane.showMessageDialog(null,"Gravação realizada com sucesso!!","Mensagem do Programa",JOptionPane.INFORMATION_MESSAGE);
@@ -218,6 +229,12 @@ public class frm_cadastrar extends javax.swing.JFrame {
         mostralogin.setVisible(true);
         dispose();
     }//GEN-LAST:event_cadastrarActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        frm_Menu mostramenu = new frm_Menu();
+        mostramenu.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,6 +272,7 @@ public class frm_cadastrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnSair;
     public javax.swing.JButton cadastrar;
     public javax.swing.JComboBox<String> combobox;
     private javax.swing.JPanel jPanel1;

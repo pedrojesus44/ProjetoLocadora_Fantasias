@@ -4,6 +4,7 @@ package controle;
 import conexao.Conexao;
 import controle.frm_cadastrar;
 import controle.frm_Catalogo;
+import controle.frm_Menu;
 import java.sql.SQLException;
 import javax.swing.JOptionPane; 
 import javax.sql.*;
@@ -42,6 +43,7 @@ public class frm_Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 204));
@@ -98,6 +100,15 @@ public class frm_Login extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/door_in.png"))); // NOI18N
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSair);
+        btnSair.setBounds(429, 480, 30, 25);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,6 +157,12 @@ public class frm_Login extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        frm_Menu mostramenu = new frm_Menu();
+        mostramenu.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -183,6 +200,7 @@ public class frm_Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCadastrar;
+    public javax.swing.JButton btnSair;
     public javax.swing.JButton btn_login;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

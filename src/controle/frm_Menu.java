@@ -33,6 +33,7 @@ public class frm_Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btn_logincliente = new javax.swing.JButton();
         btn_loginfuncionario = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +64,15 @@ public class frm_Menu extends javax.swing.JFrame {
         jPanel1.add(btn_loginfuncionario);
         btn_loginfuncionario.setBounds(330, 200, 130, 25);
 
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/door_in.png"))); // NOI18N
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSair);
+        btnSair.setBounds(589, 380, 30, 25);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,6 +98,10 @@ public class frm_Menu extends javax.swing.JFrame {
         loginfuncionario.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_loginfuncionarioActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,6 +139,7 @@ public class frm_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnSair;
     public javax.swing.JButton btn_logincliente;
     public javax.swing.JButton btn_loginfuncionario;
     private javax.swing.JLabel jLabel1;
