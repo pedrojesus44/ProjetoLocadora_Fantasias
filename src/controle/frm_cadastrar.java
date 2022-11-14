@@ -51,6 +51,8 @@ public class frm_cadastrar extends javax.swing.JFrame {
         txt7 = new javax.swing.JTextField();
         txt8 = new javax.swing.JTextField();
         txt9 = new javax.swing.JTextField();
+        rotulo10 = new javax.swing.JLabel();
+        combobox = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,13 +82,13 @@ public class frm_cadastrar extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Senha:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(70, 580, 50, 20);
+        jLabel4.setBounds(70, 660, 50, 20);
         jPanel1.add(txt1);
         txt1.setBounds(130, 130, 320, 22);
         jPanel1.add(txt2);
         txt2.setBounds(130, 180, 320, 22);
         jPanel1.add(txt10);
-        txt10.setBounds(130, 580, 290, 22);
+        txt10.setBounds(130, 660, 290, 22);
 
         cadastrar.setText("Cadastrar");
         cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +97,7 @@ public class frm_cadastrar extends javax.swing.JFrame {
             }
         });
         jPanel1.add(cadastrar);
-        cadastrar.setBounds(220, 640, 90, 25);
+        cadastrar.setBounds(220, 750, 90, 25);
 
         rotulo2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         rotulo2.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,6 +155,16 @@ public class frm_cadastrar extends javax.swing.JFrame {
         jPanel1.add(txt9);
         txt9.setBounds(130, 530, 130, 22);
 
+        rotulo10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo10.setForeground(new java.awt.Color(255, 255, 255));
+        rotulo10.setText("Tipo:");
+        jPanel1.add(rotulo10);
+        rotulo10.setBounds(70, 580, 60, 20);
+
+        combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PF", "PJ", "ONG" }));
+        jPanel1.add(combobox);
+        combobox.setBounds(120, 580, 54, 22);
+
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
@@ -167,8 +179,8 @@ public class frm_cadastrar extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 892, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -217,10 +229,12 @@ public class frm_cadastrar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton cadastrar;
+    public javax.swing.JComboBox<String> combobox;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JLabel rotulo1;
+    public javax.swing.JLabel rotulo10;
     public javax.swing.JLabel rotulo2;
     public javax.swing.JLabel rotulo3;
     public javax.swing.JLabel rotulo4;

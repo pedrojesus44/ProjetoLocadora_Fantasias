@@ -33,8 +33,8 @@ public class frm_Login extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         titulo = new javax.swing.JLabel();
-        rotulo_usuario = new javax.swing.JLabel();
-        txt_usuario = new javax.swing.JTextField();
+        rotulo_email = new javax.swing.JLabel();
+        txt_email = new javax.swing.JTextField();
         rotulo_senha = new javax.swing.JLabel();
         txt_senha = new javax.swing.JTextField();
         btn_login = new javax.swing.JButton();
@@ -54,13 +54,13 @@ public class frm_Login extends javax.swing.JFrame {
         jPanel1.add(titulo);
         titulo.setBounds(80, 40, 303, 48);
 
-        rotulo_usuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        rotulo_usuario.setForeground(new java.awt.Color(255, 255, 255));
-        rotulo_usuario.setText("Usuário:");
-        jPanel1.add(rotulo_usuario);
-        rotulo_usuario.setBounds(80, 120, 55, 20);
-        jPanel1.add(txt_usuario);
-        txt_usuario.setBounds(150, 120, 230, 22);
+        rotulo_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo_email.setForeground(new java.awt.Color(255, 255, 255));
+        rotulo_email.setText("Email:");
+        jPanel1.add(rotulo_email);
+        rotulo_email.setBounds(80, 120, 55, 20);
+        jPanel1.add(txt_email);
+        txt_email.setBounds(140, 110, 230, 30);
 
         rotulo_senha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         rotulo_senha.setForeground(new java.awt.Color(255, 255, 255));
@@ -68,7 +68,7 @@ public class frm_Login extends javax.swing.JFrame {
         jPanel1.add(rotulo_senha);
         rotulo_senha.setBounds(80, 180, 44, 20);
         jPanel1.add(txt_senha);
-        txt_senha.setBounds(150, 180, 230, 22);
+        txt_senha.setBounds(140, 170, 230, 30);
 
         btn_login.setText("Logar");
         btn_login.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +117,7 @@ public class frm_Login extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         try{
-            String pesquisa = "select * from tbusuario where usuario like '" + txt_usuario.getText() + "' && senha = " + txt_senha.getText() + "";
+            String pesquisa = "select * from clientes where email_cli like '" + txt_email.getText() + "' && senha_cli = " + txt_senha.getText() + "";
             con_cliente.executaSQL(pesquisa);
             
             if (con_cliente.resultset.first()) {
@@ -130,11 +130,10 @@ public class frm_Login extends javax.swing.JFrame {
                 
                 JOptionPane.showMessageDialog(null, "\n Usuário não cadastrado!!!!","Mensagem do Programa",JOptionPane.INFORMATION_MESSAGE);
                 con_cliente.desconecta();
-                System.exit(0);
             }
         }
         catch(SQLException errosql) {
-            JOptionPane.showMessageDialog(null,"\n Osdados digitados não foram localizados!! :\n "+errosql,"Mensagem do Programa",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"\n Os dados digitados não foram localizados!! :\n "+errosql,"Mensagem do Programa",JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btn_loginActionPerformed
 
@@ -185,10 +184,10 @@ public class frm_Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    public javax.swing.JLabel rotulo_email;
     public javax.swing.JLabel rotulo_senha;
-    public javax.swing.JLabel rotulo_usuario;
     public javax.swing.JLabel titulo;
+    public javax.swing.JTextField txt_email;
     public javax.swing.JTextField txt_senha;
-    public javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables
 }
