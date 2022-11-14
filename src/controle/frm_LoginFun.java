@@ -10,12 +10,12 @@ import javax.sql.*;
  *
  * @author Admin
  */
-public class frm_Login extends javax.swing.JFrame {
+public class frm_LoginFun extends javax.swing.JFrame {
     Conexao con_cliente;
     /**
      * Creates new form frm_Login
      */
-    public frm_Login() {
+    public frm_LoginFun() {
         initComponents();
         con_cliente = new Conexao();
         con_cliente.conecta();
@@ -40,6 +40,8 @@ public class frm_Login extends javax.swing.JFrame {
         btn_login = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
+        rotulo_senha1 = new javax.swing.JLabel();
+        txt_cod = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,7 +68,7 @@ public class frm_Login extends javax.swing.JFrame {
         rotulo_senha.setForeground(new java.awt.Color(255, 255, 255));
         rotulo_senha.setText("Senha:");
         jPanel1.add(rotulo_senha);
-        rotulo_senha.setBounds(80, 180, 44, 20);
+        rotulo_senha.setBounds(80, 170, 44, 20);
         jPanel1.add(txt_senha);
         txt_senha.setBounds(140, 170, 230, 30);
 
@@ -77,13 +79,13 @@ public class frm_Login extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_login);
-        btn_login.setBounds(190, 230, 81, 25);
+        btn_login.setBounds(190, 310, 81, 25);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Não possui cadastro?");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(160, 300, 142, 20);
+        jLabel1.setBounds(160, 410, 142, 20);
 
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +94,15 @@ public class frm_Login extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnCadastrar);
-        btnCadastrar.setBounds(190, 340, 83, 25);
+        btnCadastrar.setBounds(190, 450, 83, 25);
+
+        rotulo_senha1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo_senha1.setForeground(new java.awt.Color(255, 255, 255));
+        rotulo_senha1.setText("Código de acesso:");
+        jPanel1.add(rotulo_senha1);
+        rotulo_senha1.setBounds(80, 220, 130, 20);
+        jPanel1.add(txt_cod);
+        txt_cod.setBounds(210, 220, 160, 30);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
@@ -118,7 +128,7 @@ public class frm_Login extends javax.swing.JFrame {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         try{
             
-            String pesquisa = "select * from clientes where email_cli like '" + txt_email.getText() + "' && senha_cli = " + txt_senha.getText() + "";
+            String pesquisa = "select * from funcionario where email_fun like '" + txt_email.getText() + "' && senha_fun = " + txt_senha.getText() + "', && cod_fun = " + txt_cod.getText() + "";
             System.out.println(pesquisa);
             con_cliente.executaSQL(pesquisa);
             
@@ -162,20 +172,21 @@ public class frm_Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_LoginFun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_LoginFun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_LoginFun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_LoginFun.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_Login().setVisible(true);
+                new frm_LoginFun().setVisible(true);
             }
         });
     }
@@ -188,7 +199,9 @@ public class frm_Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     public javax.swing.JLabel rotulo_email;
     public javax.swing.JLabel rotulo_senha;
+    public javax.swing.JLabel rotulo_senha1;
     public javax.swing.JLabel titulo;
+    public javax.swing.JTextField txt_cod;
     public javax.swing.JTextField txt_email;
     public javax.swing.JTextField txt_senha;
     // End of variables declaration//GEN-END:variables

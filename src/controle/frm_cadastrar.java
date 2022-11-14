@@ -4,6 +4,10 @@
  */
 package controle;
 
+import conexao.Conexao; // importar do package a classe
+import javax.swing.JOptionPane;
+import java.sql.*; // para reconhecimento dos comandos SQL
+import javax.sql.*;
 import controle.frm_Login;
 
 /**
@@ -11,12 +15,17 @@ import controle.frm_Login;
  * @author Admin
  */
 public class frm_cadastrar extends javax.swing.JFrame {
+    
+    Conexao con_cliente;
 
     /**
      * Creates new form frm_cadastrar
      */
     public frm_cadastrar() {
         initComponents();
+        setLocationRelativeTo( null );
+        con_cliente = new Conexao(); // inicialização do objeto como instância
+        con_cliente.conecta(); // chama o método que conecta
     }
 
     /**
@@ -32,7 +41,7 @@ public class frm_cadastrar extends javax.swing.JFrame {
         titulo = new javax.swing.JLabel();
         rotulo1 = new javax.swing.JLabel();
         rotulo4 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        rotulo11 = new javax.swing.JLabel();
         txt1 = new javax.swing.JTextField();
         txt2 = new javax.swing.JTextField();
         txt10 = new javax.swing.JTextField();
@@ -78,11 +87,11 @@ public class frm_cadastrar extends javax.swing.JFrame {
         jPanel1.add(rotulo4);
         rotulo4.setBounds(70, 280, 80, 20);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Senha:");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(70, 660, 50, 20);
+        rotulo11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo11.setForeground(new java.awt.Color(255, 255, 255));
+        rotulo11.setText("Senha:");
+        jPanel1.add(rotulo11);
+        rotulo11.setBounds(70, 660, 50, 20);
         jPanel1.add(txt1);
         txt1.setBounds(130, 130, 320, 22);
         jPanel1.add(txt2);
@@ -187,6 +196,39 @@ public class frm_cadastrar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
+        String nome_cli = txt1.getText();
+        String email_cli = txt2.getText();
+        String data_nasc_cli = txt3.getText();
+        String cpf_cnpj = txt4.getText();
+        String endereco_cli = txt5.getText();
+        String cep_cli = txt6.getText();
+        String bairro_cli = txt7.getText();
+        String cidade_cli = txt8.getText();
+        String estado_cli = txt9.getText();
+        String tipo_cli = combobox.getSelectedItem().toString();
+        String senha_cli = txt10.getText();
+        
+        try {
+            String insert_sql="insert into clientes (nome_cli,email_cli, data_nasc_cli, cpf_cnpj, "
+                    + "endereco_cli, cep_cli, bairro_cli, cidade_cli, estado_cli, tipo_cli, senha_cli) values ('" + nome_cli + "',"
+                    
+                    + "'" + email_cli + "',"
+                    + "'" + data_nasc_cli + "',"
+                    + "'" + cpf_cnpj +"',"
+                    + "'" + endereco_cli + "',"
+                    + "'" + cep_cli + "',"
+                    + "'" + bairro_cli + "',"
+                    + "'" + cidade_cli + "',"
+                    + "'" + estado_cli + "',"
+                    + "'" + tipo_cli + "',"
+                    + "'" + senha_cli + "')";
+            con_cliente.statement.executeUpdate(insert_sql);
+            JOptionPane.showMessageDialog(null,"Gravação realizada com sucesso!!","Mensagem do Programa",JOptionPane.INFORMATION_MESSAGE);
+            
+        }catch(SQLException errosql) {
+            JOptionPane.showMessageDialog(null,"\n Erro na gravação :\n "+errosql,"Mensagem do Programa",JOptionPane.INFORMATION_MESSAGE);
+        }
+               
         frm_Login mostralogin = new frm_Login();
         mostralogin.setVisible(true);
         dispose();
@@ -230,11 +272,11 @@ public class frm_cadastrar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton cadastrar;
     public javax.swing.JComboBox<String> combobox;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JLabel rotulo1;
     public javax.swing.JLabel rotulo10;
+    public javax.swing.JLabel rotulo11;
     public javax.swing.JLabel rotulo2;
     public javax.swing.JLabel rotulo3;
     public javax.swing.JLabel rotulo4;

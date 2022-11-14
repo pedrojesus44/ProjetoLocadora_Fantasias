@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Nov-2022 às 02:18
+-- Tempo de geração: 14-Nov-2022 às 04:58
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `clientes`
+-- Banco de dados: `clientes2`
 --
 
 -- --------------------------------------------------------
@@ -28,13 +28,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cartao` (
-  `numero_cartao` int(16) NOT NULL,
-  `nome_titular` text NOT NULL,
-  `data_validade` text NOT NULL,
+  `numero_cartao` varchar(16) NOT NULL,
+  `nome_titular` varchar(20) NOT NULL,
+  `data_validade` varchar(5) NOT NULL,
   `cvv` int(3) NOT NULL,
   `bandeira_cartao` text NOT NULL,
-  `id_pag` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_pag` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -43,17 +43,10 @@ CREATE TABLE `cartao` (
 --
 
 CREATE TABLE `categoria` (
-  `id_cat` int(11) NOT NULL,
+  `id_cat` int(4) NOT NULL,
   `tipo` text NOT NULL,
   `descricao` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `categoria`
---
-
-INSERT INTO `categoria` (`id_cat`, `tipo`, `descricao`) VALUES
-(1, 'Horror', 'Fantasias de horror');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -62,19 +55,19 @@ INSERT INTO `categoria` (`id_cat`, `tipo`, `descricao`) VALUES
 --
 
 CREATE TABLE `clientes` (
-  `id_cli` int(11) NOT NULL,
-  `email_cli` varchar(40) NOT NULL,
-  `senha_cli` text NOT NULL,
+  `id_cli` int(4) NOT NULL,
+  `email_cli` varchar(50) NOT NULL,
+  `senha_cli` varchar(50) NOT NULL,
   `nome_cli` text NOT NULL,
-  `data_nasc_cli` text NOT NULL,
-  `cep_cli` varchar(9) NOT NULL,
+  `data_nasc_cli` varchar(10) NOT NULL,
+  `cep_cli` varchar(10) NOT NULL,
   `endereco_cli` text NOT NULL,
   `bairro_cli` text NOT NULL,
   `cidade_cli` text NOT NULL,
-  `telefone_cli` text NOT NULL,
-  `cpf_cnpj` text NOT NULL,
+  `telefone_cli` varchar(16) NOT NULL,
+  `cpf_cnpj` varchar(16) NOT NULL,
   `estado_cli` text NOT NULL,
-  `apelido_nome_fantasia` text NOT NULL,
+  `apelido_nome_fantasia` varchar(30) NOT NULL,
   `tipo` enum('PF','PJ','ONG') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -83,7 +76,8 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id_cli`, `email_cli`, `senha_cli`, `nome_cli`, `data_nasc_cli`, `cep_cli`, `endereco_cli`, `bairro_cli`, `cidade_cli`, `telefone_cli`, `cpf_cnpj`, `estado_cli`, `apelido_nome_fantasia`, `tipo`) VALUES
-(2, 'm@m.com', 'm', 'm', '1', '11111-111', 'a', 'a', 'a', '2', '3', 'g', 'n', 'PF');
+(1, 'A', '123', '', '', '', '', '', '', '', '', '', '', 'PF'),
+(2, 'B', '456', '', '', '', '', '', '', '', '', '', '', 'PF');
 
 -- --------------------------------------------------------
 
@@ -92,12 +86,12 @@ INSERT INTO `clientes` (`id_cli`, `email_cli`, `senha_cli`, `nome_cli`, `data_na
 --
 
 CREATE TABLE `devolucao` (
-  `id_dev` int(11) NOT NULL,
+  `id_dev` int(4) NOT NULL,
   `situacao_prod_dev` longtext NOT NULL,
-  `data_dev` text NOT NULL,
-  `id_cli` int(11) NOT NULL,
-  `id_loc` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `data_dev` varchar(10) NOT NULL,
+  `id_cli` int(4) NOT NULL,
+  `id_loc` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -106,9 +100,9 @@ CREATE TABLE `devolucao` (
 --
 
 CREATE TABLE `dinheiro` (
-  `troco` text NOT NULL,
-  `id_pag` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `troco` varchar(10) NOT NULL,
+  `id_pag` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -117,12 +111,20 @@ CREATE TABLE `dinheiro` (
 --
 
 CREATE TABLE `funcionario` (
-  `id_fun` int(11) NOT NULL,
+  `id_fun` int(4) NOT NULL,
   `email_fun` varchar(50) NOT NULL,
-  `senha_fun` varchar(20) NOT NULL,
+  `senha_fun` int(20) NOT NULL,
   `nome_fun` text NOT NULL,
-  `cargo_fun` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `cargo_fun` text NOT NULL,
+  `cod_fun` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `funcionario`
+--
+
+INSERT INTO `funcionario` (`id_fun`, `email_fun`, `senha_fun`, `nome_fun`, `cargo_fun`, `cod_fun`) VALUES
+(1, 'j', 123, 'jonas', 'vendedor', '555');
 
 -- --------------------------------------------------------
 
@@ -131,9 +133,9 @@ CREATE TABLE `funcionario` (
 --
 
 CREATE TABLE `item_locacao` (
-  `id_pro` int(11) NOT NULL,
-  `id_loc` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_pro` int(4) NOT NULL,
+  `id_loc` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -142,13 +144,13 @@ CREATE TABLE `item_locacao` (
 --
 
 CREATE TABLE `locacao` (
-  `id_loc` int(11) NOT NULL,
-  `data_loc` text NOT NULL,
-  `id_cli` int(11) NOT NULL,
+  `id_loc` int(4) NOT NULL,
+  `data_loc` varchar(10) NOT NULL,
+  `id_cli` int(4) NOT NULL,
   `metodo_pag` text NOT NULL,
-  `id_pag` int(11) NOT NULL,
-  `hora_loc` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_pag` int(4) NOT NULL,
+  `hora_loc` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -157,11 +159,11 @@ CREATE TABLE `locacao` (
 --
 
 CREATE TABLE `pagamento` (
-  `id_pag` int(11) NOT NULL,
-  `id_cli` int(11) NOT NULL,
+  `id_cli` int(4) NOT NULL,
+  `id_pag` int(4) NOT NULL,
   `metodo_pag` text NOT NULL,
   `valor` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -170,20 +172,19 @@ CREATE TABLE `pagamento` (
 --
 
 CREATE TABLE `produto` (
-  `id_pro` int(11) NOT NULL,
-  `tamanho_pro` text NOT NULL,
-  `nome_pro` text NOT NULL,
-  `tipo_pro` text NOT NULL,
-  `id_cat` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_pro` int(4) NOT NULL,
+  `nome_pro` varchar(30) NOT NULL,
+  `tipo_pro` varchar(15) NOT NULL,
+  `tamanho_pro` varchar(10) NOT NULL,
+  `id_cat` int(4) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `produto`
 --
 
-INSERT INTO `produto` (`id_pro`, `tamanho_pro`, `nome_pro`, `tipo_pro`, `id_cat`) VALUES
-(3, 'G', 'IT a Coisa Figurino', 'Terror', NULL),
-(4, 'M', 'Wolverine3', 'Herói', NULL);
+INSERT INTO `produto` (`id_pro`, `nome_pro`, `tipo_pro`, `tamanho_pro`, `id_cat`) VALUES
+(6, 'Fantasia do Pennywise', 'Terror', 'GG', NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -227,13 +228,6 @@ ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`id_fun`);
 
 --
--- Índices para tabela `item_locacao`
---
-ALTER TABLE `item_locacao`
-  ADD KEY `id_pro` (`id_pro`),
-  ADD KEY `id_loc` (`id_loc`);
-
---
 -- Índices para tabela `locacao`
 --
 ALTER TABLE `locacao`
@@ -261,43 +255,43 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT de tabela `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cat` int(4) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_cli` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `devolucao`
 --
 ALTER TABLE `devolucao`
-  MODIFY `id_dev` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_dev` int(4) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `id_fun` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_fun` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `locacao`
 --
 ALTER TABLE `locacao`
-  MODIFY `id_loc` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_loc` int(4) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `pagamento`
 --
 ALTER TABLE `pagamento`
-  MODIFY `id_pag` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pag` int(4) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id_pro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_pro` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restrições para despejos de tabelas
@@ -320,13 +314,6 @@ ALTER TABLE `devolucao`
 --
 ALTER TABLE `dinheiro`
   ADD CONSTRAINT `dinheiro_ibfk_1` FOREIGN KEY (`id_pag`) REFERENCES `pagamento` (`id_pag`);
-
---
--- Limitadores para a tabela `item_locacao`
---
-ALTER TABLE `item_locacao`
-  ADD CONSTRAINT `item_locacao_ibfk_1` FOREIGN KEY (`id_pro`) REFERENCES `produto` (`id_pro`),
-  ADD CONSTRAINT `item_locacao_ibfk_2` FOREIGN KEY (`id_loc`) REFERENCES `locacao` (`id_loc`);
 
 --
 -- Limitadores para a tabela `locacao`

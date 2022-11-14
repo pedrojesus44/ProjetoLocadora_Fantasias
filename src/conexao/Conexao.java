@@ -14,7 +14,7 @@ import java.sql.*; // para execução de comandos SQL no ambiente Java
 public class Conexao {
     
     final private String driver = "com.mysql.jdbc.Driver"; // definição do driver MySql para acesso aos dados
-    final private String url = "jdbc:mysql://localhost/clientes"; // acesso ao bd clientes no servidor
+    final private String url = "jdbc:mysql://localhost/clientes2"; // acesso ao bd clientes no servidor
     final private String usuario = "root"; // usuário do MySql - easyphp
     final private String senha = ""; // senha do MySql - easyphp
     private Connection conexao; // variável que armazenará a conexão aberta

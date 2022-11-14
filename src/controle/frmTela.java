@@ -12,6 +12,7 @@ public class frmTela extends javax.swing.JFrame {
     
     public frmTela() {
         initComponents();
+        setLocationRelativeTo( null );
         con_cliente = new Conexao(); // inicialização do objeto como instância
         con_cliente.conecta(); // chama o método que conecta
         con_cliente.executaSQL("select * from produto order by id_pro");
