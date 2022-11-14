@@ -2,6 +2,7 @@
 package controle;
 
 import conexao.Conexao; // importar do package a classe
+import controle.frm_Menu;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel; // para reconhecimento da Jtable
 import java.sql.*; // para reconhecimento dos comandos SQL
@@ -332,7 +333,8 @@ public class frmTela extends javax.swing.JFrame {
         String tamanho = txt4.getText();
         
         try {
-            String insert_sql="insert into produto (nome_pro,tipo_pro, tamanho_pro) values ('" + nome + "','" + tipo + "','" + tamanho + "')";
+            String insert_sql="insert into produto (nome_pro,tipo_pro, tamanho_pro) values ('" + nome + "','" + tipo + "','" + tamanho + "')";   
+            System.out.println(insert_sql);
             con_cliente.statement.executeUpdate(insert_sql);
             JOptionPane.showMessageDialog(null,"Gravação realizada com sucesso!!","Mensagem do Programa",JOptionPane.INFORMATION_MESSAGE);
             con_cliente.executaSQL("select * from produto order by id_pro");
@@ -412,7 +414,9 @@ public class frmTela extends javax.swing.JFrame {
     }//GEN-LAST:event_txt6KeyReleased
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        System.exit(0);
+        frm_Menu mostramenu = new frm_Menu();
+        mostramenu.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     

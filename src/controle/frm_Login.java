@@ -3,6 +3,7 @@ package controle;
 
 import conexao.Conexao;
 import controle.frm_cadastrar;
+import controle.frm_Catalogo;
 import java.sql.SQLException;
 import javax.swing.JOptionPane; 
 import javax.sql.*;
@@ -124,7 +125,7 @@ public class frm_Login extends javax.swing.JFrame {
             
             if (con_cliente.resultset.first()) {
                 
-                frmTela mostra = new frmTela();
+                frm_Catalogo mostra = new frm_Catalogo();
                 mostra.setVisible(true);
                 dispose();
             }

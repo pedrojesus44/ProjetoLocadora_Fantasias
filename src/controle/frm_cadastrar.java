@@ -7,7 +7,6 @@ package controle;
 import conexao.Conexao; // importar do package a classe
 import javax.swing.JOptionPane;
 import java.sql.*; // para reconhecimento dos comandos SQL
-import javax.sql.*;
 import controle.frm_Login;
 
 /**
@@ -18,9 +17,6 @@ public class frm_cadastrar extends javax.swing.JFrame {
     
     Conexao con_cliente;
 
-    /**
-     * Creates new form frm_cadastrar
-     */
     public frm_cadastrar() {
         initComponents();
         setLocationRelativeTo( null );
@@ -209,19 +205,8 @@ public class frm_cadastrar extends javax.swing.JFrame {
         String senha_cli = txt10.getText();
         
         try {
-            String insert_sql="insert into clientes (nome_cli,email_cli, data_nasc_cli, cpf_cnpj, "
-                    + "endereco_cli, cep_cli, bairro_cli, cidade_cli, estado_cli, tipo_cli, senha_cli) values ('" + nome_cli + "',"
-                    
-                    + "'" + email_cli + "',"
-                    + "'" + data_nasc_cli + "',"
-                    + "'" + cpf_cnpj +"',"
-                    + "'" + endereco_cli + "',"
-                    + "'" + cep_cli + "',"
-                    + "'" + bairro_cli + "',"
-                    + "'" + cidade_cli + "',"
-                    + "'" + estado_cli + "',"
-                    + "'" + tipo_cli + "',"
-                    + "'" + senha_cli + "')";
+            String insert_sql="insert into clientes (nome_cli,email_cli, data_nasc_cli) values ('" + nome_cli + "','" + email_cli + "','" + data_nasc_cli + "')";
+            System.out.println(insert_sql);
             con_cliente.statement.executeUpdate(insert_sql);
             JOptionPane.showMessageDialog(null,"Gravação realizada com sucesso!!","Mensagem do Programa",JOptionPane.INFORMATION_MESSAGE);
             

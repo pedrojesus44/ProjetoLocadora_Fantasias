@@ -38,11 +38,8 @@ public class frm_LoginFun extends javax.swing.JFrame {
         rotulo_senha = new javax.swing.JLabel();
         txt_senha = new javax.swing.JTextField();
         btn_login = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        btnCadastrar = new javax.swing.JButton();
-        rotulo_senha1 = new javax.swing.JLabel();
-        txt_cod = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
+        btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 204));
@@ -52,25 +49,25 @@ public class frm_LoginFun extends javax.swing.JFrame {
 
         titulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         titulo.setForeground(new java.awt.Color(255, 255, 255));
-        titulo.setText("Acesso ao sistema");
+        titulo.setText("Login Administrativo");
         jPanel1.add(titulo);
-        titulo.setBounds(80, 40, 303, 48);
+        titulo.setBounds(60, 40, 360, 48);
 
         rotulo_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         rotulo_email.setForeground(new java.awt.Color(255, 255, 255));
         rotulo_email.setText("Email:");
         jPanel1.add(rotulo_email);
-        rotulo_email.setBounds(80, 120, 55, 20);
+        rotulo_email.setBounds(80, 150, 55, 20);
         jPanel1.add(txt_email);
-        txt_email.setBounds(140, 110, 230, 30);
+        txt_email.setBounds(140, 140, 230, 30);
 
         rotulo_senha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         rotulo_senha.setForeground(new java.awt.Color(255, 255, 255));
         rotulo_senha.setText("Senha:");
         jPanel1.add(rotulo_senha);
-        rotulo_senha.setBounds(80, 170, 44, 20);
+        rotulo_senha.setBounds(80, 210, 44, 20);
         jPanel1.add(txt_senha);
-        txt_senha.setBounds(140, 170, 230, 30);
+        txt_senha.setBounds(140, 200, 230, 30);
 
         btn_login.setText("Logar");
         btn_login.addActionListener(new java.awt.event.ActionListener() {
@@ -79,33 +76,19 @@ public class frm_LoginFun extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_login);
-        btn_login.setBounds(190, 310, 81, 25);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Não possui cadastro?");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(160, 410, 142, 20);
-
-        btnCadastrar.setText("Cadastrar");
-        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCadastrar);
-        btnCadastrar.setBounds(190, 450, 83, 25);
-
-        rotulo_senha1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        rotulo_senha1.setForeground(new java.awt.Color(255, 255, 255));
-        rotulo_senha1.setText("Código de acesso:");
-        jPanel1.add(rotulo_senha1);
-        rotulo_senha1.setBounds(80, 220, 130, 20);
-        jPanel1.add(txt_cod);
-        txt_cod.setBounds(210, 220, 160, 30);
+        btn_login.setBounds(190, 270, 81, 25);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
+
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/door_in.png"))); // NOI18N
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSair);
+        btnSair.setBounds(440, 490, 30, 25);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,7 +111,7 @@ public class frm_LoginFun extends javax.swing.JFrame {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         try{
             
-            String pesquisa = "select * from funcionario where email_fun like '" + txt_email.getText() + "' && senha_fun = " + txt_senha.getText() + "', && cod_fun = " + txt_cod.getText() + "";
+            String pesquisa = "select * from funcionario where email_fun like '" + txt_email.getText() + "' && senha_fun = " + txt_senha.getText() + "";
             System.out.println(pesquisa);
             con_cliente.executaSQL(pesquisa);
             
@@ -149,11 +132,11 @@ public class frm_LoginFun extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_loginActionPerformed
 
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         frm_cadastrar mostracadastro = new frm_cadastrar();
         mostracadastro.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnCadastrarActionPerformed
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,16 +175,13 @@ public class frm_LoginFun extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCadastrar;
+    public javax.swing.JButton btnSair;
     public javax.swing.JButton btn_login;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JLabel rotulo_email;
     public javax.swing.JLabel rotulo_senha;
-    public javax.swing.JLabel rotulo_senha1;
     public javax.swing.JLabel titulo;
-    public javax.swing.JTextField txt_cod;
     public javax.swing.JTextField txt_email;
     public javax.swing.JTextField txt_senha;
     // End of variables declaration//GEN-END:variables
