@@ -23,6 +23,9 @@ public class frm_cadastrar extends javax.swing.JFrame {
         setLocationRelativeTo( null );
         con_cliente = new Conexao(); // inicialização do objeto como instância
         con_cliente.conecta(); // chama o método que conecta
+        con_cliente.executaSQL("select * from clientes order by id_cli");
+
+
     }
 
     /**
@@ -59,6 +62,10 @@ public class frm_cadastrar extends javax.swing.JFrame {
         txt9 = new javax.swing.JTextField();
         rotulo10 = new javax.swing.JLabel();
         combobox = new javax.swing.JComboBox<>();
+        rotulo12 = new javax.swing.JLabel();
+        txt11 = new javax.swing.JTextField();
+        rotulo13 = new javax.swing.JLabel();
+        txt12 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btnSair = new javax.swing.JButton();
 
@@ -89,13 +96,13 @@ public class frm_cadastrar extends javax.swing.JFrame {
         rotulo11.setForeground(new java.awt.Color(255, 255, 255));
         rotulo11.setText("Senha:");
         jPanel1.add(rotulo11);
-        rotulo11.setBounds(70, 660, 50, 20);
+        rotulo11.setBounds(70, 680, 50, 20);
         jPanel1.add(txt1);
         txt1.setBounds(130, 130, 320, 22);
         jPanel1.add(txt2);
         txt2.setBounds(130, 180, 320, 22);
         jPanel1.add(txt10);
-        txt10.setBounds(130, 660, 290, 22);
+        txt10.setBounds(140, 630, 290, 22);
 
         cadastrar.setText("Cadastrar");
         cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +111,7 @@ public class frm_cadastrar extends javax.swing.JFrame {
             }
         });
         jPanel1.add(cadastrar);
-        cadastrar.setBounds(220, 750, 90, 25);
+        cadastrar.setBounds(220, 810, 90, 25);
 
         rotulo2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         rotulo2.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,6 +179,22 @@ public class frm_cadastrar extends javax.swing.JFrame {
         jPanel1.add(combobox);
         combobox.setBounds(120, 580, 54, 22);
 
+        rotulo12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo12.setForeground(new java.awt.Color(255, 255, 255));
+        rotulo12.setText("Apelido:");
+        jPanel1.add(rotulo12);
+        rotulo12.setBounds(70, 630, 60, 20);
+        jPanel1.add(txt11);
+        txt11.setBounds(130, 680, 290, 22);
+
+        rotulo13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo13.setForeground(new java.awt.Color(255, 255, 255));
+        rotulo13.setText("Telefone:");
+        jPanel1.add(rotulo13);
+        rotulo13.setBounds(70, 730, 70, 20);
+        jPanel1.add(txt12);
+        txt12.setBounds(140, 730, 290, 22);
+
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
@@ -213,13 +236,18 @@ public class frm_cadastrar extends javax.swing.JFrame {
         String cidade_cli = txt8.getText();
         String estado_cli = txt9.getText();
         String tipo_cli = combobox.getSelectedItem().toString();
-        String senha_cli = txt10.getText();
+        String apelido_nome_fantasia = txt10.getText();
+        String senha_cli = txt11.getText();
+        String telefone_cli = txt12.getText();
         
         try {
-            String insert_sql="insert into clientes (nome_cli,email_cli, data_nasc_cli, cpf_cnpj, endereco_cli, cep_cli, bairro_cli, cidade_cli, estado_cli, senha_cli) values ('" + nome_cli + "','" + email_cli + "','" + data_nasc_cli + "', '" + cpf_cnpj + "','" + endereco_cli + "','" + cep_cli + "', '" + bairro_cli + "','" + cidade_cli + "','" + estado_cli + "', '" + tipo_cli + "','" + senha_cli + "')";
+            String insert_sql="insert into clientes (email_cli,senha_cli,nome_cli,data_nasc_cli,cep_cli,endereco_cli,bairro_cli,cidade_cli,telefone_cli,cpf_cnpj,estado_cli,apelido_nome_fantasia,tipo) values ('" + email_cli + "','" + senha_cli + "','" + nome_cli + "', '" + data_nasc_cli + "','" + cep_cli + "','" + endereco_cli + "', '" + bairro_cli + "','" + cidade_cli + "', '" + telefone_cli + "', '" + cpf_cnpj + "', '" + estado_cli + "', '" + apelido_nome_fantasia + "','" + tipo_cli + "')";
             System.out.println(insert_sql);
             con_cliente.statement.executeUpdate(insert_sql);
             JOptionPane.showMessageDialog(null,"Gravação realizada com sucesso!!","Mensagem do Programa",JOptionPane.INFORMATION_MESSAGE);
+            //con_cliente.executaSQL("select * from clientes order by id_cli");
+            //con_cliente.resultset.first();
+
             
         }catch(SQLException errosql) {
             JOptionPane.showMessageDialog(null,"\n Erro na gravação :\n "+errosql,"Mensagem do Programa",JOptionPane.INFORMATION_MESSAGE);
@@ -280,6 +308,8 @@ public class frm_cadastrar extends javax.swing.JFrame {
     public javax.swing.JLabel rotulo1;
     public javax.swing.JLabel rotulo10;
     public javax.swing.JLabel rotulo11;
+    public javax.swing.JLabel rotulo12;
+    public javax.swing.JLabel rotulo13;
     public javax.swing.JLabel rotulo2;
     public javax.swing.JLabel rotulo3;
     public javax.swing.JLabel rotulo4;
@@ -291,6 +321,8 @@ public class frm_cadastrar extends javax.swing.JFrame {
     public javax.swing.JLabel titulo;
     public javax.swing.JTextField txt1;
     public javax.swing.JTextField txt10;
+    public javax.swing.JTextField txt11;
+    public javax.swing.JTextField txt12;
     public javax.swing.JTextField txt2;
     public javax.swing.JTextField txt3;
     public javax.swing.JTextField txt4;
