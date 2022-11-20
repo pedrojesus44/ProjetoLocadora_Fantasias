@@ -49,6 +49,8 @@ public class frmTela extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         rotulo6 = new javax.swing.JLabel();
         txt6 = new javax.swing.JTextField();
+        rotulo5 = new javax.swing.JLabel();
+        txt5 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,17 +64,17 @@ public class frmTela extends javax.swing.JFrame {
 
         tblProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nome", "Tipo", "Tamanho"
+                "Código", "Nome", "Tipo", "Tamanho", "Preço"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -162,6 +164,8 @@ public class frmTela extends javax.swing.JFrame {
             }
         });
 
+        rotulo5.setText("Preço:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -173,11 +177,27 @@ public class frmTela extends javax.swing.JFrame {
                         .addComponent(rotulo6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt6, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
                         .addComponent(btnSair))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnPrimeiroRegistro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnVoltarUmRegistro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAvancarUmRegistro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnUltimoRegistro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnNovo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnGravar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAlterar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnExcluir))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -195,24 +215,13 @@ public class frmTela extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(rotulo3)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txt3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 487, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnPrimeiroRegistro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnVoltarUmRegistro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAvancarUmRegistro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnUltimoRegistro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnNovo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnGravar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAlterar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnExcluir))))
+                                        .addComponent(txt3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rotulo5)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txt5)
+                                        .addGap(218, 218, 218)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(ScrollPane)))
@@ -237,6 +246,10 @@ public class frmTela extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rotulo4)
                     .addComponent(txt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rotulo5)
+                    .addComponent(txt5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnPrimeiroRegistro, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -249,7 +262,7 @@ public class frmTela extends javax.swing.JFrame {
                     .addComponent(btnExcluir, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(29, 29, 29)
@@ -273,6 +286,7 @@ public class frmTela extends javax.swing.JFrame {
         txt2.setText(tblProdutos.getValueAt(linha_selecionada, 1).toString());
         txt3.setText(tblProdutos.getValueAt(linha_selecionada, 2).toString());
         txt4.setText(tblProdutos.getValueAt(linha_selecionada, 3).toString());
+        txt5.setText(tblProdutos.getValueAt(linha_selecionada, 4).toString());
     }//GEN-LAST:event_tblProdutosKeyPressed
 
     private void tblProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProdutosMouseClicked
@@ -281,6 +295,7 @@ public class frmTela extends javax.swing.JFrame {
         txt2.setText(tblProdutos.getValueAt(linha_selecionada, 1).toString());
         txt3.setText(tblProdutos.getValueAt(linha_selecionada, 2).toString());
         txt4.setText(tblProdutos.getValueAt(linha_selecionada, 3).toString());
+        txt5.setText(tblProdutos.getValueAt(linha_selecionada, 4).toString());
     }//GEN-LAST:event_tblProdutosMouseClicked
 
     private void btnPrimeiroRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeiroRegistroActionPerformed
@@ -331,9 +346,10 @@ public class frmTela extends javax.swing.JFrame {
         String nome = txt2.getText();
         String tipo = txt3.getText();
         String tamanho = txt4.getText();
+        String preco = txt5.getText();
         
         try {
-            String insert_sql="insert into produto (nome_pro,tipo_pro, tamanho_pro) values ('" + nome + "','" + tipo + "','" + tamanho + "')";   
+            String insert_sql="insert into produto (nome_pro,tipo_pro, tamanho_pro, preco) values ('" + nome + "','" + tipo + "','" + tamanho + "','" + preco + "')";   
             System.out.println(insert_sql);
             con_cliente.statement.executeUpdate(insert_sql);
             JOptionPane.showMessageDialog(null,"Gravação realizada com sucesso!!","Mensagem do Programa",JOptionPane.INFORMATION_MESSAGE);
@@ -351,15 +367,16 @@ public class frmTela extends javax.swing.JFrame {
         String nome = txt2.getText();
         String tipo = txt3.getText();
         String tamanho = txt4.getText();
+        String preco = txt5.getText();
         String sql="";
         String msg="";
         
         try {
             if(txt1.getText().equals("")){
-                sql="insert into produto (nome_pro,tipo_pro, tamanho_pro) values ('" + nome + "','" + tipo + "','" + tamanho + "')";
+                sql="insert into produto (nome_pro,tipo_pro, tamanho_pro, preco) values ('" + nome + "','" + tipo + "','" + tamanho + "','" + preco + "')";
                 msg="Gravação de um novo registro";
             } else {
-                sql="update produto set nome_pro='" + nome + "',tipo_pro='" + tipo + "', tamanho_pro='" + tamanho + "' where id_pro = " + txt1.getText();
+                sql="update produto set nome_pro='" + nome + "',tipo_pro='" + tipo + "', tamanho_pro='" + tamanho + "', preco='" + preco + "' where id_pro = " + txt1.getText();
                 msg="Alteração de registro";
             }
             
@@ -425,6 +442,7 @@ public class frmTela extends javax.swing.JFrame {
         tblProdutos.getColumnModel().getColumn(1).setPreferredWidth(150);
         tblProdutos.getColumnModel().getColumn(2).setPreferredWidth(11);
         tblProdutos.getColumnModel().getColumn(3).setPreferredWidth(14);
+        tblProdutos.getColumnModel().getColumn(4).setPreferredWidth(100);
         
         DefaultTableModel modelo = (DefaultTableModel) tblProdutos.getModel();
         modelo.setNumRows(0);
@@ -437,6 +455,7 @@ public class frmTela extends javax.swing.JFrame {
                     con_cliente.resultset.getString("nome_pro"),
                     con_cliente.resultset.getString("tipo_pro"),
                     con_cliente.resultset.getString("tamanho_pro"),
+                    con_cliente.resultset.getString("preco"),
                 });
             }
         }catch(SQLException erro){
@@ -460,6 +479,7 @@ public class frmTela extends javax.swing.JFrame {
             txt2.setText(con_cliente.resultset.getString("nome_pro")); // Associar a caixa de texto ao campo nome
             txt3.setText(con_cliente.resultset.getString("tipo_pro"));
             txt4.setText(con_cliente.resultset.getString("tamanho_pro"));
+            txt5.setText(con_cliente.resultset.getString("preco"));
         } catch(SQLException erro) {
         }
     }
@@ -511,12 +531,14 @@ public class frmTela extends javax.swing.JFrame {
     public javax.swing.JLabel rotulo2;
     public javax.swing.JLabel rotulo3;
     public javax.swing.JLabel rotulo4;
+    public javax.swing.JLabel rotulo5;
     public javax.swing.JLabel rotulo6;
     public javax.swing.JTable tblProdutos;
     public javax.swing.JTextField txt1;
     public javax.swing.JTextField txt2;
     public javax.swing.JTextField txt3;
     public javax.swing.JTextField txt4;
+    public javax.swing.JTextField txt5;
     public javax.swing.JTextField txt6;
     // End of variables declaration//GEN-END:variables
 }

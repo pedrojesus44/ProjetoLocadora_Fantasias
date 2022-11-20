@@ -56,20 +56,30 @@ public class frm_Catalogo extends javax.swing.JFrame {
         btnVoltarUmRegistro = new javax.swing.JButton();
         btnAvancarUmRegistro = new javax.swing.JButton();
         btnUltimoRegistro = new javax.swing.JButton();
+        rotulo5 = new javax.swing.JLabel();
+        txt5 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tblProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nome", "Tipo", "Tamanho"
+                "Código", "Nome", "Tipo", "Tamanho", "Preço"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblProdutos);
 
         btn_sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/door_in.png"))); // NOI18N
@@ -124,6 +134,8 @@ public class frm_Catalogo extends javax.swing.JFrame {
             }
         });
 
+        rotulo5.setText("Preço:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,14 +165,18 @@ public class frm_Catalogo extends javax.swing.JFrame {
                             .addComponent(rotulo1)
                             .addGap(18, 18, 18)
                             .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(rotulo3)
+                            .addGap(18, 18, 18)
+                            .addComponent(txt3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(rotulo4)
                             .addGap(18, 18, 18)
                             .addComponent(txt4, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(rotulo3)
+                            .addComponent(rotulo5)
                             .addGap(18, 18, 18)
-                            .addComponent(txt3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txt5, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnPrimeiroRegistro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -190,7 +206,11 @@ public class frm_Catalogo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rotulo4)
                     .addComponent(txt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rotulo5)
+                    .addComponent(txt5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnPrimeiroRegistro, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnVoltarUmRegistro, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -217,6 +237,7 @@ public class frm_Catalogo extends javax.swing.JFrame {
         txt2.setText(tblProdutos.getValueAt(linha_selecionada, 1).toString());
         txt3.setText(tblProdutos.getValueAt(linha_selecionada, 2).toString());
         txt4.setText(tblProdutos.getValueAt(linha_selecionada, 3).toString());
+        txt5.setText(tblProdutos.getValueAt(linha_selecionada, 4).toString());
     }                                      
 
     private void tblProdutosMouseClicked(java.awt.event.MouseEvent evt) {                                         
@@ -225,6 +246,7 @@ public class frm_Catalogo extends javax.swing.JFrame {
         txt2.setText(tblProdutos.getValueAt(linha_selecionada, 1).toString());
         txt3.setText(tblProdutos.getValueAt(linha_selecionada, 2).toString());
         txt4.setText(tblProdutos.getValueAt(linha_selecionada, 3).toString());
+        txt5.setText(tblProdutos.getValueAt(linha_selecionada, 4).toString());
     }               
         
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
@@ -290,6 +312,7 @@ public class frm_Catalogo extends javax.swing.JFrame {
         tblProdutos.getColumnModel().getColumn(1).setPreferredWidth(150);
         tblProdutos.getColumnModel().getColumn(2).setPreferredWidth(11);
         tblProdutos.getColumnModel().getColumn(3).setPreferredWidth(14);
+        tblProdutos.getColumnModel().getColumn(4).setPreferredWidth(100);
         
         DefaultTableModel modelo = (DefaultTableModel) tblProdutos.getModel();
         modelo.setNumRows(0);
@@ -302,6 +325,7 @@ public class frm_Catalogo extends javax.swing.JFrame {
                     con_cliente.resultset.getString("nome_pro"),
                     con_cliente.resultset.getString("tipo_pro"),
                     con_cliente.resultset.getString("tamanho_pro"),
+                    con_cliente.resultset.getString("preco"),
                 });
             }
         }catch(SQLException erro){
@@ -325,6 +349,7 @@ public class frm_Catalogo extends javax.swing.JFrame {
             txt2.setText(con_cliente.resultset.getString("nome_pro")); // Associar a caixa de texto ao campo nome
             txt3.setText(con_cliente.resultset.getString("tipo_pro"));
             txt4.setText(con_cliente.resultset.getString("tamanho_pro"));
+            txt5.setText(con_cliente.resultset.getString("preco"));
         } catch(SQLException erro) {
         }
     }
@@ -376,12 +401,14 @@ public class frm_Catalogo extends javax.swing.JFrame {
     public javax.swing.JLabel rotulo2;
     public javax.swing.JLabel rotulo3;
     public javax.swing.JLabel rotulo4;
+    public javax.swing.JLabel rotulo5;
     public javax.swing.JLabel rotulo_pesquisa;
     public javax.swing.JTable tblProdutos;
     public javax.swing.JTextField txt1;
     public javax.swing.JTextField txt2;
     public javax.swing.JTextField txt3;
     public javax.swing.JTextField txt4;
+    public javax.swing.JTextField txt5;
     public javax.swing.JTextField txt6;
     // End of variables declaration//GEN-END:variables
 }
