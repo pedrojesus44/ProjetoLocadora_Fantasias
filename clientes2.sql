@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Nov-2022 às 19:38
+-- Tempo de geração: 20-Nov-2022 às 22:20
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -77,7 +77,10 @@ CREATE TABLE `clientes` (
 
 INSERT INTO `clientes` (`id_cli`, `email_cli`, `senha_cli`, `nome_cli`, `data_nasc_cli`, `cep_cli`, `endereco_cli`, `bairro_cli`, `cidade_cli`, `telefone_cli`, `cpf_cnpj`, `estado_cli`, `apelido_nome_fantasia`, `tipo`) VALUES
 (1, 'A', '123', '', '', '', '', '', '', '', '', '', '', 'PF'),
-(2, 'B', '456', '', '', '', '', '', '', '', '', '', '', 'PF');
+(2, 'B', '456', '', '', '', '', '', '', '', '', '', '', 'PF'),
+(3, 'm', '123', '', '', '', '', '', '', '', '', '', '', 'PF'),
+(4, 'judas@trosky.com', 'clubedabola', 'Judas', '01/01/0000', '88888111', 'Rua do Thiago', 'Renato', 'Jerusalém', '11 4002 8922', '12345678912', 'Acre', 'Nem Judas', 'PF'),
+(5, 'judas@trosky.com', '123', '', '', '', '', '', '', '', '', '', '', 'PF');
 
 -- --------------------------------------------------------
 
@@ -176,6 +179,7 @@ CREATE TABLE `produto` (
   `nome_pro` varchar(30) NOT NULL,
   `tipo_pro` varchar(15) NOT NULL,
   `tamanho_pro` varchar(10) NOT NULL,
+  `preco` varchar(10) NOT NULL,
   `id_cat` int(4) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -183,9 +187,11 @@ CREATE TABLE `produto` (
 -- Extraindo dados da tabela `produto`
 --
 
-INSERT INTO `produto` (`id_pro`, `nome_pro`, `tipo_pro`, `tamanho_pro`, `id_cat`) VALUES
-(6, 'Fantasia do Pennywise', 'Terror', 'GG', NULL),
-(7, 'Kung Fu Panda', 'Desenho', 'P', NULL);
+INSERT INTO `produto` (`id_pro`, `nome_pro`, `tipo_pro`, `tamanho_pro`, `preco`, `id_cat`) VALUES
+(6, 'Fantasia do Pennywise', 'Terror', 'GG', '', NULL),
+(7, 'Kung Fu Panda', 'Desenho', 'P', '', NULL),
+(8, 'julia', 'julia', 'julia', '', NULL),
+(9, 'Jonas', 'jonas', 'XG', 'R$ 10,00', NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -270,7 +276,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cli` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_cli` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `devolucao`
@@ -300,7 +306,7 @@ ALTER TABLE `pagamento`
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id_pro` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_pro` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restrições para despejos de tabelas
