@@ -109,9 +109,11 @@ public class frm_LoginFun extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+        
+        String senha = txt_senha.getText();
         try{
             
-            String pesquisa = "select * from funcionario where email_fun like '" + txt_email.getText() + "' && senha_fun = " + txt_senha.getText() + "";
+            String pesquisa = "select * from funcionario where email_fun like '" + txt_email.getText() + "' && senha_fun = " + senha + "";
             System.out.println(pesquisa);
             con_cliente.executaSQL(pesquisa);
             

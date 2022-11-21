@@ -128,9 +128,11 @@ public class frm_Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+        
+        String senha = txt_senha.getText();
         try{
             
-            String pesquisa = "select * from clientes where email_cli like '" + txt_email.getText() + "' && senha_cli = " + txt_senha.getText() + "";
+            String pesquisa = "select * from clientes where email_cli like '" + txt_email.getText() + "' && senha_cli = '" + senha + "'";
             System.out.println(pesquisa);
             con_cliente.executaSQL(pesquisa);
             
