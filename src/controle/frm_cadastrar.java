@@ -66,137 +66,136 @@ public class frm_cadastrar extends javax.swing.JFrame {
         txt11 = new javax.swing.JTextField();
         rotulo13 = new javax.swing.JLabel();
         txt12 = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
         btnSair = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(170, 83, 196));
         jPanel1.setLayout(null);
 
-        titulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        titulo.setFont(new java.awt.Font("Segoe UI", 1, 60)); // NOI18N
         titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setText("Cadastro");
         jPanel1.add(titulo);
-        titulo.setBounds(200, 40, 150, 40);
+        titulo.setBounds(130, 50, 260, 60);
 
-        rotulo1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo1.setForeground(new java.awt.Color(255, 255, 255));
         rotulo1.setText("Nome:");
         jPanel1.add(rotulo1);
-        rotulo1.setBounds(70, 130, 50, 20);
+        rotulo1.setBounds(70, 140, 70, 25);
 
-        rotulo4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo4.setForeground(new java.awt.Color(255, 255, 255));
         rotulo4.setText("CPF/CNPJ:");
         jPanel1.add(rotulo4);
-        rotulo4.setBounds(70, 280, 80, 20);
+        rotulo4.setBounds(70, 290, 100, 25);
 
-        rotulo11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo11.setForeground(new java.awt.Color(255, 255, 255));
         rotulo11.setText("Senha:");
         jPanel1.add(rotulo11);
-        rotulo11.setBounds(70, 680, 50, 20);
+        rotulo11.setBounds(500, 140, 70, 25);
         jPanel1.add(txt1);
-        txt1.setBounds(130, 130, 320, 22);
+        txt1.setBounds(140, 140, 320, 30);
         jPanel1.add(txt2);
-        txt2.setBounds(130, 180, 320, 22);
+        txt2.setBounds(140, 190, 320, 30);
         jPanel1.add(txt10);
-        txt10.setBounds(140, 630, 290, 22);
+        txt10.setBounds(160, 640, 300, 30);
 
+        cadastrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cadastrar.setText("Cadastrar");
+        cadastrar.setFocusable(false);
+        cadastrar.setRequestFocusEnabled(false);
         cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastrarActionPerformed(evt);
             }
         });
         jPanel1.add(cadastrar);
-        cadastrar.setBounds(220, 810, 90, 25);
+        cadastrar.setBounds(740, 240, 120, 29);
 
-        rotulo2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo2.setForeground(new java.awt.Color(255, 255, 255));
         rotulo2.setText("Email:");
         jPanel1.add(rotulo2);
-        rotulo2.setBounds(70, 180, 40, 20);
+        rotulo2.setBounds(70, 190, 60, 25);
         jPanel1.add(txt3);
-        txt3.setBounds(220, 230, 230, 22);
+        txt3.setBounds(260, 240, 200, 30);
 
-        rotulo3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo3.setForeground(new java.awt.Color(255, 255, 255));
         rotulo3.setText("Data de Nascimento:");
         jPanel1.add(rotulo3);
-        rotulo3.setBounds(70, 230, 140, 20);
+        rotulo3.setBounds(70, 240, 180, 25);
         jPanel1.add(txt4);
-        txt4.setBounds(150, 280, 240, 22);
+        txt4.setBounds(170, 290, 290, 30);
 
-        rotulo5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo5.setForeground(new java.awt.Color(255, 255, 255));
         rotulo5.setText("Endereço:");
         jPanel1.add(rotulo5);
-        rotulo5.setBounds(70, 330, 80, 20);
+        rotulo5.setBounds(70, 340, 100, 25);
 
-        rotulo6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo6.setForeground(new java.awt.Color(255, 255, 255));
         rotulo6.setText("CEP:");
         jPanel1.add(rotulo6);
-        rotulo6.setBounds(70, 380, 40, 20);
+        rotulo6.setBounds(70, 390, 40, 25);
 
-        rotulo7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo7.setForeground(new java.awt.Color(255, 255, 255));
         rotulo7.setText("Bairro:");
         jPanel1.add(rotulo7);
-        rotulo7.setBounds(70, 430, 50, 20);
+        rotulo7.setBounds(70, 440, 70, 20);
 
-        rotulo8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo8.setForeground(new java.awt.Color(255, 255, 255));
         rotulo8.setText("Cidade:");
         jPanel1.add(rotulo8);
-        rotulo8.setBounds(70, 480, 60, 20);
+        rotulo8.setBounds(70, 490, 70, 25);
 
-        rotulo9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo9.setForeground(new java.awt.Color(255, 255, 255));
         rotulo9.setText("Estado:");
         jPanel1.add(rotulo9);
-        rotulo9.setBounds(70, 530, 60, 20);
+        rotulo9.setBounds(70, 540, 70, 25);
         jPanel1.add(txt5);
-        txt5.setBounds(150, 330, 300, 22);
+        txt5.setBounds(170, 340, 290, 30);
         jPanel1.add(txt6);
-        txt6.setBounds(110, 380, 240, 22);
+        txt6.setBounds(120, 390, 340, 30);
         jPanel1.add(txt7);
-        txt7.setBounds(130, 430, 320, 22);
+        txt7.setBounds(140, 440, 320, 30);
         jPanel1.add(txt8);
-        txt8.setBounds(140, 480, 310, 22);
+        txt8.setBounds(150, 490, 310, 30);
         jPanel1.add(txt9);
-        txt9.setBounds(130, 530, 130, 22);
+        txt9.setBounds(150, 540, 310, 30);
 
-        rotulo10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo10.setForeground(new java.awt.Color(255, 255, 255));
         rotulo10.setText("Tipo:");
         jPanel1.add(rotulo10);
-        rotulo10.setBounds(70, 580, 60, 20);
+        rotulo10.setBounds(70, 590, 60, 25);
 
         combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PF", "PJ", "ONG" }));
         jPanel1.add(combobox);
-        combobox.setBounds(120, 580, 54, 22);
+        combobox.setBounds(130, 590, 70, 30);
 
-        rotulo12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo12.setForeground(new java.awt.Color(255, 255, 255));
         rotulo12.setText("Apelido:");
         jPanel1.add(rotulo12);
-        rotulo12.setBounds(70, 630, 60, 20);
+        rotulo12.setBounds(70, 640, 80, 25);
         jPanel1.add(txt11);
-        txt11.setBounds(130, 680, 290, 22);
+        txt11.setBounds(580, 140, 290, 30);
 
-        rotulo13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo13.setForeground(new java.awt.Color(255, 255, 255));
         rotulo13.setText("Telefone:");
         jPanel1.add(rotulo13);
-        rotulo13.setBounds(70, 730, 70, 20);
+        rotulo13.setBounds(500, 190, 90, 25);
         jPanel1.add(txt12);
-        txt12.setBounds(140, 730, 290, 22);
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(null);
+        txt12.setBounds(600, 190, 270, 30);
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/door_in.png"))); // NOI18N
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -204,22 +203,22 @@ public class frm_cadastrar extends javax.swing.JFrame {
                 btnSairActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSair);
-        btnSair.setBounds(479, 850, 30, 25);
+        jPanel1.add(btnSair);
+        btnSair.setBounds(1310, 720, 30, 25);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/telasacesso/acesso4.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 1370, 770);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1366, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 892, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
         );
 
         pack();
@@ -303,8 +302,8 @@ public class frm_cadastrar extends javax.swing.JFrame {
     public javax.swing.JButton btnSair;
     public javax.swing.JButton cadastrar;
     public javax.swing.JComboBox<String> combobox;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     public javax.swing.JLabel rotulo1;
     public javax.swing.JLabel rotulo10;
     public javax.swing.JLabel rotulo11;

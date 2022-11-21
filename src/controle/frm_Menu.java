@@ -41,14 +41,16 @@ public class frm_Menu extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        rotulo.setFont(new java.awt.Font("Segoe UI", 1, 80)); // NOI18N
+        rotulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         rotulo.setForeground(new java.awt.Color(255, 255, 255));
         rotulo.setText("Menu de Acesso");
         jPanel1.add(rotulo);
-        rotulo.setBounds(160, 250, 620, 140);
+        rotulo.setBounds(330, 330, 280, 60);
 
         btn_logincliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_logincliente.setText("Login Cliente");
+        btn_logincliente.setFocusable(false);
+        btn_logincliente.setRequestFocusEnabled(false);
         btn_logincliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_loginclienteActionPerformed(evt);
@@ -58,7 +60,9 @@ public class frm_Menu extends javax.swing.JFrame {
         btn_logincliente.setBounds(240, 410, 140, 50);
 
         btn_loginfuncionario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_loginfuncionario.setText("Login Funcionário");
+        btn_loginfuncionario.setText("Login Gerencial");
+        btn_loginfuncionario.setFocusable(false);
+        btn_loginfuncionario.setRequestFocusEnabled(false);
         btn_loginfuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_loginfuncionarioActionPerformed(evt);
@@ -76,11 +80,12 @@ public class frm_Menu extends javax.swing.JFrame {
         jPanel1.add(btnSair);
         btnSair.setBounds(1320, 720, 30, 30);
 
-        rotulo1.setFont(new java.awt.Font("Segoe UI", 1, 70)); // NOI18N
+        rotulo1.setBackground(new java.awt.Color(0, 0, 0));
+        rotulo1.setFont(new java.awt.Font("Segoe UI", 1, 65)); // NOI18N
         rotulo1.setForeground(new java.awt.Color(255, 255, 255));
         rotulo1.setText("Dream Fantasy");
         jPanel1.add(rotulo1);
-        rotulo1.setBounds(430, 10, 570, 110);
+        rotulo1.setBounds(240, 250, 470, 110);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/telasacesso/acesso1.png"))); // NOI18N
         jPanel1.add(jLabel2);
@@ -127,7 +132,7 @@ public class frm_Menu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

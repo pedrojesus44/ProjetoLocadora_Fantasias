@@ -2,7 +2,7 @@ package controle;
 
 
 import conexao.Conexao;
-import controle.frm_cadastrar;
+import controle.frm_Menu;
 import java.sql.SQLException;
 import javax.swing.JOptionPane; 
 import javax.sql.*;
@@ -38,48 +38,46 @@ public class frm_LoginFun extends javax.swing.JFrame {
         rotulo_senha = new javax.swing.JLabel();
         txt_senha = new javax.swing.JTextField();
         btn_login = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         btnSair = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 204));
 
-        jPanel1.setBackground(new java.awt.Color(170, 83, 196));
         jPanel1.setLayout(null);
 
-        titulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        titulo.setFont(new java.awt.Font("Segoe UI", 1, 60)); // NOI18N
         titulo.setForeground(new java.awt.Color(255, 255, 255));
-        titulo.setText("Login Administrativo");
+        titulo.setText("Login Gerencial");
         jPanel1.add(titulo);
-        titulo.setBounds(60, 40, 360, 48);
+        titulo.setBounds(470, 170, 450, 81);
 
-        rotulo_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo_email.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo_email.setForeground(new java.awt.Color(255, 255, 255));
         rotulo_email.setText("Email:");
         jPanel1.add(rotulo_email);
-        rotulo_email.setBounds(80, 150, 55, 20);
+        rotulo_email.setBounds(520, 300, 55, 20);
         jPanel1.add(txt_email);
-        txt_email.setBounds(140, 140, 230, 30);
+        txt_email.setBounds(590, 290, 230, 30);
 
-        rotulo_senha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rotulo_senha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rotulo_senha.setForeground(new java.awt.Color(255, 255, 255));
         rotulo_senha.setText("Senha:");
         jPanel1.add(rotulo_senha);
-        rotulo_senha.setBounds(80, 210, 44, 20);
+        rotulo_senha.setBounds(520, 350, 60, 25);
         jPanel1.add(txt_senha);
-        txt_senha.setBounds(140, 200, 230, 30);
+        txt_senha.setBounds(590, 350, 230, 30);
 
         btn_login.setText("Logar");
+        btn_login.setFocusable(false);
+        btn_login.setRequestFocusEnabled(false);
         btn_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_loginActionPerformed(evt);
             }
         });
         jPanel1.add(btn_login);
-        btn_login.setBounds(190, 270, 81, 25);
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(null);
+        btn_login.setBounds(650, 420, 81, 25);
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/door_in.png"))); // NOI18N
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -87,22 +85,22 @@ public class frm_LoginFun extends javax.swing.JFrame {
                 btnSairActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSair);
-        btnSair.setBounds(440, 490, 30, 25);
+        jPanel1.add(btnSair);
+        btnSair.setBounds(1310, 710, 30, 25);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/telasacesso/acesso2.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 1370, 770);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1366, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
         );
 
         pack();
@@ -135,8 +133,8 @@ public class frm_LoginFun extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        frm_cadastrar mostracadastro = new frm_cadastrar();
-        mostracadastro.setVisible(true);
+        frm_Menu mostramenu = new frm_Menu();
+        mostramenu.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
@@ -179,8 +177,8 @@ public class frm_LoginFun extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnSair;
     public javax.swing.JButton btn_login;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     public javax.swing.JLabel rotulo_email;
     public javax.swing.JLabel rotulo_senha;
     public javax.swing.JLabel titulo;
