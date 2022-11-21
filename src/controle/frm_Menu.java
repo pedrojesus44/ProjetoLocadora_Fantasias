@@ -30,22 +30,24 @@ public class frm_Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        rotulo = new javax.swing.JLabel();
         btn_logincliente = new javax.swing.JButton();
         btn_loginfuncionario = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
+        rotulo1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(170, 83, 196));
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Menu de Acesso");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(180, 60, 280, 30);
+        rotulo.setFont(new java.awt.Font("Segoe UI", 1, 80)); // NOI18N
+        rotulo.setForeground(new java.awt.Color(255, 255, 255));
+        rotulo.setText("Menu de Acesso");
+        jPanel1.add(rotulo);
+        rotulo.setBounds(160, 250, 620, 140);
 
+        btn_logincliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_logincliente.setText("Login Cliente");
         btn_logincliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,8 +55,9 @@ public class frm_Menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_logincliente);
-        btn_logincliente.setBounds(180, 200, 110, 25);
+        btn_logincliente.setBounds(240, 410, 140, 50);
 
+        btn_loginfuncionario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_loginfuncionario.setText("Login Funcionário");
         btn_loginfuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +65,7 @@ public class frm_Menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_loginfuncionario);
-        btn_loginfuncionario.setBounds(330, 200, 130, 25);
+        btn_loginfuncionario.setBounds(510, 410, 160, 50);
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/door_in.png"))); // NOI18N
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -71,17 +74,27 @@ public class frm_Menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSair);
-        btnSair.setBounds(589, 380, 30, 25);
+        btnSair.setBounds(1320, 720, 30, 30);
+
+        rotulo1.setFont(new java.awt.Font("Segoe UI", 1, 70)); // NOI18N
+        rotulo1.setForeground(new java.awt.Color(255, 255, 255));
+        rotulo1.setText("Dream Fantasy");
+        jPanel1.add(rotulo1);
+        rotulo1.setBounds(430, 10, 570, 110);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/telasacesso/acesso1.png"))); // NOI18N
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 1366, 770);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1366, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
         );
 
         pack();
@@ -142,7 +155,9 @@ public class frm_Menu extends javax.swing.JFrame {
     public javax.swing.JButton btnSair;
     public javax.swing.JButton btn_logincliente;
     public javax.swing.JButton btn_loginfuncionario;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JLabel rotulo;
+    public javax.swing.JLabel rotulo1;
     // End of variables declaration//GEN-END:variables
 }
